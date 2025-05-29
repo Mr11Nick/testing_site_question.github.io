@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const response = await fetch('https://api.github.com/repos/Mr11Nick/testing_site_question.github.io/contents/participants.json', {
                 method: 'PUT',
                 headers: {
-                    'Authorization': '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',
+                    'Authorization': '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',
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
