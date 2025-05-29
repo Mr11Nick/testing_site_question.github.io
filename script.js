@@ -17,7 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const tgButton = document.getElementById('tgButton');
     const resultText = document.getElementById('resultText');
     const wrongAnswers = document.getElementById('wrongAnswers');
-
+    const repoOwner = 'Mr11Nick'; // например 'IvanovIvan'
+    const repoName = 'testing_site_question.github.io'; // например 'quiz-app'
+    const filePath = 'participants.json';
+    const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
     // Переменные теста
     let currentQuestion = 0;
     let userAnswers = [];
@@ -91,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Загрузка списка участников
     async function loadParticipants() {
         try {
-            const response = await fetch('https://api.github.com/repos/Mr11Nick/testing_site_question.github.io/contents/participants.json');
+            const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();
                 const content = atob(data.content);
@@ -140,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Сохраняем в GitHub
         try {
-            const response = await fetch('https://api.github.com/repos/Mr11Nick/testing_site_question.github.io/contents/participants.json', {
+            const response = await fetch(url, {
                 method: 'PUT',
                 headers: {
                     'Authorization': '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',
